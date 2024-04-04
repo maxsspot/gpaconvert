@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+        <title>GPA to Percent</title>
+    </head>
+    <body>
+        <br>
+        <select id = "mode" onchange = "modechange()">
+            <option value = "GPA to Percent">GPA to Percent</option>
+            <option value = "Percent to GPA">Percent to GPA</option>
+        </select>
+        <br>
+        <br>
+        <div id = "gpatopercent">
+            <h2>GPA To Percent</h2>
+            <input inputmode = "number" id = "gpainput" placeholder = "GPA (4.0 Scale)" />
+            <br>
+            <h1>=<br><span id = "percent">0</span>%</h1>
+        </div>
+        <div id = "percenttogpa">
+            <h2>Percent to GPA</h2>
+            <input inputmode = "number" id = "percentinput" placeholder = "Percent" />
+            <br>
+            <h1>=<br><span id = "gpa">0</span></h1>
+        </div>
+
+<!------------------------------------------------------------------------------------------------->
+<!------------------------------------------------------------------------------------------------->
+<!------------------------------------------------------------------------------------------------->
+      
+        <style>
+          * {
+    outline:none;
+    font-family:"Open Sans", sans-serif;
+}
+
+body {
+    text-align:center;
+}
+
+input {
+    height:40px;
+    border:black solid 1px;
+    border-radius:20px;
+    text-align:center;
+}
+
+select {
+    border-radius:20px;
+    padding:5px;
+}
+
+#percenttogpa {
+    display:none;
+}
+
+h2 {
+    text-decoration:underline dotted;
+}
+        </style>
+      
+<!------------------------------------------------------------------------------------------------->
+<!------------------------------------------------------------------------------------------------->
+<!------------------------------------------------------------------------------------------------->
+      
+        <script>
+          // VARIABLES
+// GPA to Percent
+var gpainput = document.getElementById ("gpainput");
+var percent = document.getElementById ("percent");
+
+// Percent to GPA
+var percentinput = document.getElementById ("percentinput");
+var gpa = document.getElementById ("gpa");
+
+// Mode
+var mode = document.getElementById ("mode");
+
+// GPA TO PERCENTAGE
+setInterval (function () {
+    percent.innerHTML = gpainput.value * 25;
+    gpa.innerHTML = percentinput.value / 25;
+}, 1)
+
+// MODE CHANGE
+function modechange () {
+    if (mode.value == "GPA to Percent") {
+        document.getElementById ("gpatopercent").style.display = "block";
+        document.getElementById ("percenttogpa").style.display = "none";
+        document.title = "GPA to Percent";
+    } else if (mode.value == "Percent to GPA") {
+        document.getElementById ("gpatopercent").style.display = "none";
+        document.getElementById ("percenttogpa").style.display = "block";
+        document.title = "Percent to GPA";
+    }
+}
+        </script>
+    </body>
+</html>
